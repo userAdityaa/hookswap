@@ -1,6 +1,7 @@
 'use client'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
@@ -15,11 +16,12 @@ export function AppHeader({ links = [] }: { links: { label: string; path: string
   }
 
   return (
-    <header className="relative z-50 px-20 py-2 bg-neutral-100 dark:bg-neutral-900 dark:text-neutral-400">
+    <header className="relative z-50 px-20 py-4 bg-neutral-100 dark:bg-black dark:text-neutral-400 h-[4rem] border-b-2">
       <div className="mx-auto flex justify-between items-center">
         <div className="flex items-baseline gap-4">
-          <Link className="text-xl hover:text-neutral-500 dark:hover:text-white" href="/">
-            <span>Hookswap</span>
+          <Link className="text-2xl hover:text-neutral-500 dark:hover:text-white flex items-center gap-2" href="/">
+            <Image src = '/logo.png' alt='logo' width={25} height={25}></Image>
+            <span className='text-white font-bold'>HookSwap</span>
           </Link>
         </div>
 
