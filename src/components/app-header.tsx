@@ -4,8 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
-import { ThemeSelect } from '@/components/theme-select'
-import { ClusterButton, WalletButton } from '@/components/solana/solana-provider'
+import { WalletButton } from '@/components/solana/solana-provider'
 
 export function AppHeader({ links = [] }: { links: { label: string; path: string }[] }) {
   const pathname = usePathname()
@@ -16,26 +15,12 @@ export function AppHeader({ links = [] }: { links: { label: string; path: string
   }
 
   return (
-    <header className="relative z-50 px-4 py-2 bg-neutral-100 dark:bg-neutral-900 dark:text-neutral-400">
+    <header className="relative z-50 px-20 py-2 bg-neutral-100 dark:bg-neutral-900 dark:text-neutral-400">
       <div className="mx-auto flex justify-between items-center">
         <div className="flex items-baseline gap-4">
           <Link className="text-xl hover:text-neutral-500 dark:hover:text-white" href="/">
             <span>Hookswap</span>
           </Link>
-          <div className="hidden md:flex items-center">
-            <ul className="flex gap-4 flex-nowrap items-center">
-              {links.map(({ label, path }) => (
-                <li key={path}>
-                  <Link
-                    className={`hover:text-neutral-500 dark:hover:text-white ${isActive(path) ? 'text-neutral-500 dark:text-white' : ''}`}
-                    href={path}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setShowMenu(!showMenu)}>
@@ -44,8 +29,6 @@ export function AppHeader({ links = [] }: { links: { label: string; path: string
 
         <div className="hidden md:flex items-center gap-4">
           <WalletButton size="sm" />
-          <ClusterButton size="sm" />
-          <ThemeSelect />
         </div>
 
         {showMenu && (
@@ -66,8 +49,6 @@ export function AppHeader({ links = [] }: { links: { label: string; path: string
               </ul>
               <div className="flex flex-col gap-4">
                 <WalletButton />
-                <ClusterButton />
-                <ThemeSelect />
               </div>
             </div>
           </div>
