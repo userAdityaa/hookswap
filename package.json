@@ -31,7 +31,7 @@
     "@solana/spl-token": "^0.4.13",
     "@solana/web3.js": "^1.98.4",
     "@tanstack/react-query": "^5.83.0",
-    "@wallet-ui/react": "1.1.0-canary-20250617152337",
+    "@wallet-ui/react": "2.0.0",
     "@wallet-ui/tailwind": "1.1.0-canary-20250617152337",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
